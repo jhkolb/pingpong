@@ -43,7 +43,7 @@ func main() {
 				fmt.Println("Receive failed:", err)
 				os.Exit(1)
 			}
-			fmt.Printf("(%d) Received: %s\n", i, recvMsg)
+			fmt.Printf("(%d) Received: %s", i, recvMsg)
 
 			time.Sleep(delay)
 		}
@@ -70,7 +70,7 @@ func main() {
 				fmt.Println("Receive failed:", err)
 				os.Exit(1)
 			}
-			fmt.Printf("(%d) Received: %s\n", i, recvMsg)
+			fmt.Printf("(%d) Received: %s", i, recvMsg)
 
 			fmt.Printf("(%d) Sending: %s", i, sendMsg)
 			if _, err := serverConn.Write([]byte(sendMsg)); err != nil {
