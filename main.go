@@ -23,7 +23,7 @@ func main() {
 	}
 
 	if mode == "ping" {
-		clientConn, err := net.Dial("tcp", "pong:4590")
+		clientConn, err := net.Dial("tcp", "spawnpoint_pong:4590")
 		if err != nil {
 			fmt.Println("Failed to connect:", err)
 			os.Exit(1)
