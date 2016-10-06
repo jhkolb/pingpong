@@ -29,10 +29,10 @@ func main() {
 			os.Exit(1)
 		}
 
-		sendMsg := "ping"
+		sendMsg := "ping\n"
 		reader := bufio.NewReader(clientConn)
 		for i := 0; i < numIters; i++ {
-			fmt.Printf("(%d) Sending: %s\n", i, sendMsg)
+			fmt.Printf("(%d) Sending: %s", i, sendMsg)
 			if _, err := clientConn.Write([]byte(sendMsg)); err != nil {
 				fmt.Println("Send failed:", err)
 				os.Exit(1)
@@ -63,7 +63,7 @@ func main() {
 		}
 		reader := bufio.NewReader(serverConn)
 
-		sendMsg := "pong"
+		sendMsg := "pong\n"
 		for i := 0; i < numIters; i++ {
 			recvMsg, err := reader.ReadString('\n')
 			if err != nil {
@@ -72,7 +72,7 @@ func main() {
 			}
 			fmt.Printf("(%d) Received: %s\n", i, recvMsg)
 
-			fmt.Printf("(%d) Sending: %s\n", i, sendMsg)
+			fmt.Printf("(%d) Sending: %s", i, sendMsg)
 			if _, err := serverConn.Write([]byte(sendMsg)); err != nil {
 				fmt.Println("Send failed:", err)
 				os.Exit(1)
